@@ -14,11 +14,11 @@ This is the checklist of functionality.
     - SweetAlert
 - Back-end: 
   - Base Laravel 5.2 Authentication
-  - Customised base Laravel 5.2 Authentication **TODO**
+  - Customised base Laravel 5.2 Authentication _TODO: Register View_
   - User management
     - User list **TODO**
-    - Edit user info
-      - Change user role **TODO**
+    - User profile _TODO: Make the view
+    - Edit user info **TODO, AND ADD SOME INFORMATION INTO THE USER MIGRATION**
     - Suspend/Unsuspend users **TODO**
   - Projects
     - View all projects **TODO**
