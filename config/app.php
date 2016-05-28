@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Codecourse\Notify\NotifyServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
     ],
 
@@ -205,6 +206,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Notify' => Codecourse\Notify\Facades\Notify::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

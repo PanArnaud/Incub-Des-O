@@ -17,7 +17,8 @@ This is the checklist of functionality.
   - Customised base Laravel 5.2 Authentication _TODO: Register View_
   - User management
     - User list **TODO**
-    - User profile _TODO: Make the view
+    - User profile _TODO: Make the view_
+    - User role with Entrust by Zizaco
     - Edit user info **TODO, AND ADD SOME INFORMATION INTO THE USER MIGRATION**
     - Suspend/Unsuspend users **TODO**
   - Projects

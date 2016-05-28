@@ -17,7 +17,7 @@
 						<div class="content">
 						  	<a href="" class="header">Construction de terrasse en bois</a>
 						  	<div class="meta">
-						    	<span>Le Tampon</span>
+						    	<span>Le Tampon</span> - Par <span><strong><a href="">DadaArno</a></strong></span>
 						  	</div>
 						  	<div class="description">
 						    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, dolores nemo nostrum, tempore explicabo labore omnis laborum beatae, facilis voluptatibus voluptates temporibus nam doloremque ex molestias similique unde ducimus fugiat velit possimus aliquam natus libero. Cupiditate perferendis modi et maxime nulla voluptates possimus voluptas, qui officia accusamus doloremque consequuntur aspernatur dolores obcaecati repellat sunt aperiam eligendi optio? Accusamus quis vitae distinctio voluptatibus hic eveniet debitis. Expedita, saepe. Provident amet, consequuntur nisi ea numquam possimus ipsam.</p>
@@ -37,7 +37,7 @@
 						<div class="content">
 						  	<a class="header">Activité de vacances pour enfants de maternelle/primaire</a>
 						  	<div class="meta">
-						    	<span>Saint-Louis</span>
+						    	<span>Saint-Louis</span> - Par <span><strong><a href="">Manuella</a></strong></span>
 						  	</div>
 						  	<div class="description">
 						    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem vero eos quas aliquid, id provident non pariatur molestiae ullam perferendis accusantium, velit explicabo magni adipisci.</p>
