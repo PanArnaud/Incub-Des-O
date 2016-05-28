@@ -37,7 +37,7 @@
 
 				  	@if(Auth::check())
                         <div class="ui simple dropdown item">
-							<i class="user icon"></i>{{ Auth::user()->name }} 
+							<i class="user icon"></i>{{ Auth::user()->getFullName() }} 
 						  	<i class="dropdown icon"></i>
 						  	<div class="menu">
 						    	<a href="" class="item">

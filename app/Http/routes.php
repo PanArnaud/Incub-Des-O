@@ -29,5 +29,7 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('@{username}', 'User\UserController@profile')->name('user.profile');
+	
     Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 });
