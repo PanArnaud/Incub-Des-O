@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'PageController@index')->name('index');
+// List all project
+Route::get('projects', ['as' => 'project.index', 'uses' => 'Project\ProjectController@all']);
+
 
 Route::group(['middleware' => ['guest']], function () {
 	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
@@ -26,10 +29,16 @@ Route::group(['middleware' => ['guest']], function () {
 	Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
 	Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
 	Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
 });
 
 Route::group(['middleware' => ['auth']], function () {
+    // Users
     Route::get('@{username}', 'User\UserController@profile')->name('user.profile');
 	
+    // Projects
+    Route::get('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@create']);
+    Route::post('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@store']);
+
     Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 });

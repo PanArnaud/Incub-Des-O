@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Projet;
+use App\Project;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -34,6 +34,6 @@ class User extends Authenticatable
 
     public function projects()
     {
-        return $this->hasMany(Projet::class);
+        return $this->hasMany(Project::class);
     }
 }

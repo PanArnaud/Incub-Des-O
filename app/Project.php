@@ -8,6 +8,12 @@ use App\City;
 
 class Project extends Model
 {
+	protected $fillable = [
+        'title',
+        'city_id',
+        'description',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

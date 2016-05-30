@@ -15,9 +15,12 @@
 	        	<div class="four wide column">
 	          		<h4 class="ui header">Projet</h4>
 	          		<div class="ui link list">
-			            <a href="#" class="item">Liste de projets</a>
-			            <a href="#" class="item">Derniers projets mis à jour</a>
-			            <a href="#" class="item">Ajouter un projet</a>
+			            <a href="{{ route('project.index') }}" class="item">
+				    		Liste des projets
+				    	</a>
+			            <a href="{{ route('project.create') }}" class="item">
+				    		Ajouter un projet
+				    	</a>
 	          		</div>
 	        	</div>
 	        	<div class="eight wide column">

@@ -3,7 +3,7 @@
   		<div class="column">
 			<div class="ui secondary menu">
 				<div class="header item">Incub Des O</div>
-				<a href="{{ route('index') }}" class="active item">
+				<a href="{{ route('index') }}" class="{{ Request::is('/') ? 'active' : '' }} item">
 				  	<i class="home icon"></i> Accueil
 				</a>
 				
@@ -11,13 +11,10 @@
 					<i class="idea icon"></i>Projets
 				  	<i class="dropdown icon"></i>
 				  	<div class="menu">
-				    	<a href="" class="item">
+				    	<a href="{{ route('project.index') }}" class="item">
 				    		Liste des projets
 				    	</a>
-				    	<a href="" class="item">
-				    		Derniers projets mis à jour
-				    	</a>
-				    	<a href="" class="item">
+				    	<a href="{{ route('project.create') }}" class="item">
 				    		Ajouter un projet
 				    	</a>
 				  	</div>

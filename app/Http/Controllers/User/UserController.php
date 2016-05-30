@@ -16,7 +16,5 @@ class UserController extends Controller
     	if (!$find) {
     		return abort(404);
     	}
-
-    	dd($find);
     }
 }
