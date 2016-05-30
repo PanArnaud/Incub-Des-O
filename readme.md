@@ -24,7 +24,7 @@ This is the checklist of functionality.
     - Suspend/Unsuspend users **TODO**
   - Projects
     - View all projects **TODO**
-    - Create **TODO**
+    - Create
     - Delete **TODO**
     - Edit **TODO**
     - Comments

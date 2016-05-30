@@ -8,46 +8,28 @@
 		    <div class="twelve wide column grid">
 		    	<h2 class="ui header dividing">Projets récemment actifs</h2>
 		    	<div class="ui divided items">
-					<div class="item">
-						<div class="ui image small">
-							<a href="">
-							  	<img  class="ui rounded image" src="http://www.terrasse-bois-nantes.com/images/presentation/slider/terrasse_bois_04.jpg">
-							</a>
+					@foreach($projects as $project)
+						<div class="item">
+							<div class="ui image small">
+								<a href="">
+								  	<img  class="ui rounded image" src="http://www.terrasse-bois-nantes.com/images/presentation/slider/terrasse_bois_04.jpg">
+								</a>
+							</div>
+							<div class="content">
+							  	<a href="" class="header">{{ $project->title }}</a>
+							  	<div class="meta">
+							    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="">{{ $project->user->username }}</a></strong></span>
+							  	</div>
+							  	<div class="description">
+							    	<p>{{ substr($project->description, 0, 350) }}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
+							  	</div>
+						  		<div class="extra">
+						  			<a href="">3 commentaires</a> 
+									<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div>
+						  		</div>
+							</div>
 						</div>
-						<div class="content">
-						  	<a href="" class="header">Construction de terrasse en bois</a>
-						  	<div class="meta">
-						    	<span>Le Tampon</span> - Par <span><strong><a href="">DadaArno</a></strong></span>
-						  	</div>
-						  	<div class="description">
-						    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, dolores nemo nostrum, tempore explicabo labore omnis laborum beatae, facilis voluptatibus voluptates temporibus nam doloremque ex molestias similique unde ducimus fugiat velit possimus aliquam natus libero. Cupiditate perferendis modi et maxime nulla voluptates possimus voluptas, qui officia accusamus doloremque consequuntur aspernatur dolores obcaecati repellat sunt aperiam eligendi optio? Accusamus quis vitae distinctio voluptatibus hic eveniet debitis. Expedita, saepe. Provident amet, consequuntur nisi ea numquam possimus ipsam.</p>
-						  	</div>
-					  		<div class="extra">
-					  			<a href="">3 commentaires</a> 
-								<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div>
-					  		</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="ui image small">
-							<a href="">
-							  	<img class="ui rounded image" src="http://www.anniversaire-974.fr/s/cc_images/cache_9717399.jpg?t=1370766129">
-							</a>
-						</div>
-						<div class="content">
-						  	<a class="header">Activité de vacances pour enfants de maternelle/primaire</a>
-						  	<div class="meta">
-						    	<span>Saint-Louis</span> - Par <span><strong><a href="">Manuella</a></strong></span>
-						  	</div>
-						  	<div class="description">
-						    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem vero eos quas aliquid, id provident non pariatur molestiae ullam perferendis accusantium, velit explicabo magni adipisci.</p>
-						  	</div>
-					  		<div class="extra">
-					  			<a href="">14 commentaires</a> 
-								<div class="ui right floated star rating" data-rating="4" data-max-rating="5"></div>
-					  		</div>
-						</div>
-					</div>
+					@endforeach
 		    	</div>
 		    </div>
     		<div class="four wide column">

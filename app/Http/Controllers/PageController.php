@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        return view('index');
+    	$projects = $project->take(3)->get();
+        return view('index')->withProjects($projects);
     }
 }
