@@ -15,7 +15,7 @@ This is the checklist of functionality.
     - SweetAlert
 - Back-end: 
   - Base Laravel 5.2 Authentication
-  - Customised base Laravel 5.2 Authentication _TODO: Register View_
+  - Customised base Laravel 5.2 Authentication
   - User management
     - User list **TODO**
     - User profile _TODO: Make the view_
