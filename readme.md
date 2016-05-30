@@ -9,6 +9,7 @@ This is the checklist of functionality.
     - Semantic-UI
     - Highlight
     - SweetAlert
+    - Slick (Carousel)
   - Stylesheets
     - Semantic-UI (Default theme)
     - SweetAlert
