@@ -6,13 +6,13 @@
     <div class="ui grid">
     	<div class="two column row">
 		    <div class="twelve wide column grid">
-		    	<h2 class="ui header dividing">Projets récemment actifs</h2>
+		    	<h2 class="ui header dividing">Projets récemment publiés</h2>
 		    	<div class="ui divided items">
 					@foreach($projects as $project)
 						<div class="item">
 							<div class="ui image small">
 								<a href="">
-								  	<img  class="ui rounded image" src="http://www.terrasse-bois-nantes.com/images/presentation/slider/terrasse_bois_04.jpg">
+								  	<img  class="ui rounded image" src="">
 								</a>
 							</div>
 							<div class="content">
@@ -23,10 +23,10 @@
 							  	<div class="description">
 							    	<p>{{ substr($project->description, 0, 350) }}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
 							  	</div>
-						  		<div class="extra">
+						  		{{-- <div class="extra">
 						  			<a href="">3 commentaires</a> 
 									<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div>
-						  		</div>
+						  		</div> --}}
 							</div>
 						</div>
 					@endforeach
