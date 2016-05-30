@@ -5,9 +5,9 @@
 @section('content')
     <div style="position:relative" class="ui two column middle aligned very relaxed stackable grid">
         <div class="column">
+            <h1>Se connecter</h1>
             <div class="ui form">
                 <form action="{{ route('auth.login') }}" method="post">
-                
                     <div class="field">
                         <label for="email">Email</label>
                             <div class="ui left icon input">
@@ -18,7 +18,7 @@
                                  @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                    </span>
                                 @endif
                             </div>
                     </div>
