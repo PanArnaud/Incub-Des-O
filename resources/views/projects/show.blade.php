@@ -14,18 +14,16 @@
 					<div class="content">
 					  	<h1>{{ $project->title }}</h1>
 		  					<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
+
 					  	<div class="meta">
-					    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>
-					  		
+					    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>	
 					  	</div>
+					  	
 				  		<div class="extra">
 		  					<div class="ui small indicating progress" id="example2">
   								<div class="bar"></div>
   							</div>
 						</div>
-				  			{{-- <a href="">3 commentaires</a> 
-							<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div> --}}{{-- 
-				  		</div> --}}
 					</div>
 				</div>
 			</div>
@@ -38,7 +36,7 @@
 					<p>{!! $project->description !!}</p>
 				</div>
 				<div class="ui bottom attached tab segment" data-tab="discussion">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum non perspiciatis impedit, eos optio, numquam pariatur sint asperiores ipsam delectus nobis aperiam nesciunt neque eum voluptates quisquam rem repellat! Ullam!
+					Emplacement pour les discussions
 				</div>
 			</div>
 		</div>
