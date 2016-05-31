@@ -23,10 +23,9 @@
 							  	<div class="description">
 							    	<p>{!! substr($project->description, 0, 350) !!}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
 							  	</div>
-						  		{{-- <div class="extra">
-						  			<a href="">3 commentaires</a> 
-									<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div>
-						  		</div> --}}
+						  		<div class="extra">
+									<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
+						  		</div>
 							</div>
 						</div>
 					@endforeach
@@ -56,7 +55,7 @@
 @section('scripts')
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$(".rating").rating();
+			$(".rating").rating('disable');
 		});
 	</script>
 @endsection

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@create']);
     Route::post('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@store']);
     Route::get('projects/{id}', ['as' => 'project.show', 'uses' => 'Project\ProjectController@show']);
+    Route::post('projects/{id}/rate', ['as' => 'project.rate', 'uses' => 'Project\ProjectController@rate']);
 
     Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 });

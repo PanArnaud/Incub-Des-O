@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Project;
+use App\Rate;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -36,4 +37,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    public function rates()
+    {
+        return $this->hasMany(Rate::class);
+    }
+
 }

@@ -13,7 +13,7 @@
 					</div>
 					<div class="content">
 					  	<h1>{{ $project->title }}</h1>
-		  					<div class="ui right floated star rating" data-rating="2" data-max-rating="5"></div>
+		  					<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
 					  	<div class="meta">
 					    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>
 					  		
@@ -54,11 +54,25 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$(".rating").rating();
-		});
+			var url = '{{ route('project.rate', ['id' => $project->id] ) }}';
+			var project_id = {{ $project->id }};
+			var token = '{{ Session::token() }}';
+
+			$('.ui.rating').rating('setting', 'onRate', function(value) {
+				alert("plop");
+				$.ajax({
+					method: 'POST',
+					url: url,
+					data: {project_id: project_id, rate: value, _token: token}
+				})
+				.done(function() {
+					alert("gg");
+				});
+			});
+	  	});
 	</script>
 	<script>
-	$('.menu .item')
+		$('.menu .item')
 	  		.tab()
 		;
 	</script>
