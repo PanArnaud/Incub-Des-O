@@ -60,4 +60,20 @@
 	  		.dropdown()
 		;
 	</script>
+
+	{{-- TinyMCE --}}
+	<script src="{{ URL::to('js/tinymce/tinymce.min.js') }}"></script>
+	<script>
+		tinymce.init({
+		  selector: 'textarea',
+		  height: 500,
+		  language : "fr_FR",
+		  plugins: [
+		    'autolink lists link charmap preview',
+		    'searchreplace visualblocks code fullscreen',
+		    'insertdatetime table contextmenu paste code'
+		  ],
+		  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+		});
+	</script>
 @endsection

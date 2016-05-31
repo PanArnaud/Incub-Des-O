@@ -11,17 +11,17 @@
 					@foreach($projects as $project)
 						<div class="item">
 							<div class="ui image small">
-								<a href="">
+								<a href="{{ route('project.show', ['id' => $project->id]) }}">
 								  	<img  class="ui rounded image" src="">
 								</a>
 							</div>
 							<div class="content">
-							  	<a href="" class="header">{{ $project->title }}</a>
+							  	<a href="{{ route('project.show', ['id' => $project->id]) }}" class="header">{{ $project->title }}</a>
 							  	<div class="meta">
-							    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="">{{ $project->user->username }}</a></strong></span>
+							    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>
 							  	</div>
 							  	<div class="description">
-							    	<p>{{ substr($project->description, 0, 350) }}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
+							    	<p>{!! substr($project->description, 0, 350) !!}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
 							  	</div>
 						  		{{-- <div class="extra">
 						  			<a href="">3 commentaires</a> 

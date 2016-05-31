@@ -15,7 +15,7 @@ class PageController extends Controller
      */
     public function index(Project $project)
     {
-    	$projects = $project->take(3)->get();
+    	$projects = $project->take(3)->orderBy('created_at', 'desc')->get();
         return view('index')->withProjects($projects);
     }
 }

@@ -15,14 +15,13 @@ class ProjectController extends Controller
    {
    		$projects = $project->paginate(10);
 
-   		// return view list of all project
+   		return view('projects.index')->withProjects($projects);
    }
 
    public function show($id, Project $project)
    {
-   		$show = $project->where('id', $id)->firstOrFail();
-   
-   		// return project view
+   		$show = $project->where('id', $id)->firstOrFail();                      
+   		return view('projects.show')->withProject($show)->withProgress(56); //edit progress
    }
 
    public function create(Request $request, City $city) 
@@ -41,7 +40,7 @@ class ProjectController extends Controller
    			'city_id' => $request->input('city_id')
    		]);
 
-   		// return the project view
+         return view('projects.show')->withProject($project)->withProgress(56); //edit progress
    }
 
    // Edit view
