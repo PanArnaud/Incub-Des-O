@@ -25,5 +25,18 @@
 				</div>
 			</div>
 		@endforeach
+
 	</div>
+	<div class="ui one column centered grid">
+@include('partials.pagination', ['paginator' => $projects])
+	</div>
+	
+@endsection
+
+@section('scripts')
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".rating").rating('disable');
+		});
+	</script>
 @endsection
