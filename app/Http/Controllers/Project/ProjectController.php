@@ -48,7 +48,7 @@ class ProjectController extends Controller
             'timer' => 2000,
         ]);
 
-         return view('projects.show')->withProject($project)->withProgress(56); //edit progress
+         return redirect()->route('project.show')->withProject($project)->withProgress(56); //edit progress
    }
 
    // Edit view
