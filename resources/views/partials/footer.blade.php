@@ -13,7 +13,7 @@
 	          		</div>
 	        	</div>
 	        	<div class="four wide column">
-	          		<h4 class="ui header">Projet</h4>
+	          		<h4 class="ui header">Projets</h4>
 	          		<div class="ui link list">
 			            <a href="{{ route('project.index') }}" class="item">
 				    		Liste des projets
