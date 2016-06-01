@@ -3,7 +3,7 @@
 @section('title', 'Se connecter/S\'incrire')
 
 @section('content')
-    <div style="position:relative" class="ui two column middle aligned very relaxed stackable grid">
+    <div style="position:relative" class="ui two column middle aligned divided stackable grid">
         <div class="column">
             <h1>Se connecter</h1>
             <div class="ui form">
@@ -42,8 +42,6 @@
                 </form>
             </div>
         </div>
-        
-        <div class="ui vertical divider">Ou </div>
         
         <div class="center aligned column">
             <a href="{{ url('/register') }}">

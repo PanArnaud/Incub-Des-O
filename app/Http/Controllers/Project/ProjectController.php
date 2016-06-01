@@ -15,7 +15,7 @@ class ProjectController extends Controller
 {
    public function all(Project $project) 
    {
-   		$projects = $project->paginate(10);
+   		$projects = $project->paginate(5);
 
    		return view('projects.index')->withProjects($projects);
    }
