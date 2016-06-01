@@ -14,11 +14,15 @@
 					<div class="content">
 					  	<h1>{{ $project->title }}</h1>
 		  					<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
-
+			
 					  	<div class="meta">
 					    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>	
 					  	</div>
 					  	
+						<div class="introduction">
+					    	<p>{{ $project->introduction }}</p>
+					  	</div>
+
 				  		<div class="extra">
 		  					<div class="ui small indicating progress" id="example2">
   								<div class="bar"></div>
@@ -57,14 +61,10 @@
 			var token = '{{ Session::token() }}';
 
 			$('.ui.rating').rating('setting', 'onRate', function(value) {
-				alert("plop");
 				$.ajax({
 					method: 'POST',
 					url: url,
 					data: {project_id: project_id, rate: value, _token: token}
-				})
-				.done(function() {
-					alert("gg");
 				});
 			});
 	  	});

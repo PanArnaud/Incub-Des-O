@@ -13,6 +13,7 @@ class Project extends Model
 	protected $fillable = [
         'title',
         'city_id',
+        'introduction',
         'description',
     ];
 

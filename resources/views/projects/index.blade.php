@@ -17,7 +17,7 @@
 				    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>
 				  	</div>
 				  	<div class="description">
-				    	<p>{!! substr($project->description, 0, 350) !!}{{ strlen($project->description) > 350 ? "..." : "" }}</p>
+				    	<p>{{ $project->introduction }}</p>
 				  	</div>
 			  		<div class="extra">
 						<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
@@ -28,7 +28,7 @@
 
 	</div>
 	<div class="ui one column centered grid">
-@include('partials.pagination', ['paginator' => $projects])
+		@include('partials.pagination', ['paginator' => $projects])
 	</div>
 	
 @endsection

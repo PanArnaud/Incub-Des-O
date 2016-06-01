@@ -33,8 +33,14 @@
   				</div>
 
 				<div class="field">
+    				<label for="introduction">Introduction</label>
+					<textarea name="introduction" id="introduction" placeholder="Une présentation rapide de votre projet" maxlength="250" rows="3">{{ old('introduction') }}</textarea>
+					<div class="textarea_feedback"></div>
+				</div>
+
+				<div class="field">
     				<label for="description">Description</label>
-					<textarea name="description" id="description" placeholder="Présentez votre projet aux autres utilisateurs">{{ old('description') }}</textarea>
+					<textarea class="description" name="description" id="description" placeholder="Présentez en détailvotre projet aux autres utilisateurs">{{ old('description') }}</textarea>
 				</div>
 
 	            {!! csrf_field() !!}
@@ -46,10 +52,15 @@
 	<div class="five wide column">
 		<h4 class="ui header"><i class="write icon"></i>Nom de votre projet</h4>
 		<p>Choisissez le nom de votre projet de sorte que les utilisateurs puissent rapidement identifier de quoi il s'agit.</p>
+		<br>
 		<h4 class="ui header"><i class="marker icon"></i>Lieu d'installation</h4>
 		<p>Sélectionner la ville ou sera situé votre projet, afin de pouvoir mieux le repertorié.</p>
+		<br>
+		<h4 class="ui header"><i class="idea icon"></i>Introduction</h4>
+		<p>Résumez votre projet rapidement, afin que les utilisateur du site puissent comprendre l'idée que vous souhaitez développer.</p>
+		<br>
 		<h4 class="ui header"><i class="help icon"></i>Description</h4>
-		<p>Décrivez votre projet en expliquant son ojectif, ses besoins, ses points forts, ses faiblesses...</p>
+		<p>Décrivez en détail votre projet en expliquant ses objectifs, ses besoins, ses points forts, ses faiblesses...</p>
 	</div>
 </div>
 @endsection
@@ -61,11 +72,29 @@
 		;
 	</script>
 
+	{{-- Count charaters left --}}
+	<script>
+		var text_max = 250;
+
+		function update_chars_left(text_max) {
+			var text_length = $('#introduction').val().length;
+        	var text_remaining = text_max - text_length;
+
+        	$('.textarea_feedback').html(text_remaining + ' caractère' + (text_remaining > 1 ? 's ' : ' ') + 'restant');	
+		}
+
+		update_chars_left(text_max);
+
+	    $('#introduction').keyup(function() {
+	        update_chars_left(text_max);
+	    });
+	</script>
+
 	{{-- TinyMCE --}}
 	<script src="{{ URL::to('js/tinymce/tinymce.min.js') }}"></script>
 	<script>
 		tinymce.init({
-		  selector: 'textarea',
+		  selector: 'textarea.description',
 		  height: 500,
 		  language : "fr_FR",
 		  plugins: [

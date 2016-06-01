@@ -17,6 +17,11 @@ class ProjectController extends Controller
    {
    		$projects = $project->paginate(10);
 
+         notify()->flash('yo !', 'warning', [
+            'text' => 'yoo',
+            'timer' => 2000,
+        ]);
+
    		return view('projects.index')->withProjects($projects);
    }
 
@@ -39,8 +44,14 @@ class ProjectController extends Controller
    		$project = $request->user()->projects()->create([
    			'title' => $request->input('title'),
    			'description' => $request->input('description'),
+            'introduction' => $request->input('introduction'),
    			'city_id' => $request->input('city_id')
    		]);
+
+         notify()->flash('Publié !', 'success', [
+            'text' => 'Votre projet a était publié avec succés !',
+            'timer' => 2000,
+        ]);
 
          return view('projects.show')->withProject($project)->withProgress(56); //edit progress
    }

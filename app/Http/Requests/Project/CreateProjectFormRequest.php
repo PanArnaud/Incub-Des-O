@@ -26,6 +26,7 @@ class CreateProjectFormRequest extends Request
         return [
             'title' => 'required',
             'description' => 'required',
+            'introduction' => 'required',
             'city_id' => 'required|exists:cities,id',
         ];
     }

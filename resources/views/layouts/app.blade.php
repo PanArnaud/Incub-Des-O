@@ -28,8 +28,8 @@
 		$('.ui.dropdown')
   			.dropdown();
 	</script>
-	@if (notify()->ready())
-        <script>
+	<script>
+        @if (notify()->ready())
             swal({
                 title: "{!! notify()->message() !!}",
                 text: "{!! notify()->option('text') !!}",
@@ -38,8 +38,7 @@
                     timer: "{{ notify()->option('timer') }}",
                 @endif
             });
-       
-        </script>
-    @endif
+        @endif    
+    </script>    
 </body>
 </html>

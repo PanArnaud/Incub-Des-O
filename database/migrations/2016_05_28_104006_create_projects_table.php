@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->integer('city_id')->unsigned();
+            $table->text('introduction');
             $table->text('description');
 
             $table->timestamps();
