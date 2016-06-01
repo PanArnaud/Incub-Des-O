@@ -17,11 +17,6 @@ class ProjectController extends Controller
    {
    		$projects = $project->paginate(10);
 
-         notify()->flash('yo !', 'warning', [
-            'text' => 'yoo',
-            'timer' => 2000,
-        ]);
-
    		return view('projects.index')->withProjects($projects);
    }
 
@@ -49,7 +44,7 @@ class ProjectController extends Controller
    		]);
 
          notify()->flash('Publié !', 'success', [
-            'text' => 'Votre projet a était publié avec succés !',
+            'text' => 'Votre projet a été publié avec succès !',
             'timer' => 2000,
         ]);
 
