@@ -38,7 +38,7 @@
 						  	<i class="dropdown icon"></i>
 						  	<div class="menu">
 						    	<a href="" class="item">
-						    		Mes projets
+						    		Mon profil
 						    	</a>
 						    	<div class="divider"></div>
 						    	<a href="" class="item">
