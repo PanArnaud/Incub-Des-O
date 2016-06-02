@@ -14,6 +14,11 @@ class Topic extends Model
         'project_id',
     ];
 
+    public function scopeLatestFirst($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

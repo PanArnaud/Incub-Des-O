@@ -46,14 +46,43 @@
 			</div>
 			<div class="four wide column grid">
 				<div class="ui top attached tabular menu">
-					<a class="active item" data-tab="description">Description</a>
-  					<a class="item" data-tab="discussion">Discussion</a>
+					<a class="{{ isset($_GET['page']) ? '' : 'active'}} item" data-tab="description">Description</a>
+  					<a class="{{ isset($_GET['page']) ? 'active' : ''}} item" data-tab="discussion">Discussions</a>
 				</div>
-				<div class="ui bottom attached tab active segment" data-tab="description">
+				<div class="ui bottom attached tab {{ isset($_GET['page']) ? '' : 'active'}} segment" data-tab="description">
 					<p>{!! $project->description !!}</p>
 				</div>
-				<div class="ui bottom attached tab segment" data-tab="discussion">
-					Emplacement pour les discussions
+				<div class="ui bottom attached tab {{ isset($_GET['page']) ? 'active' : ''}} segment" data-tab="discussion">
+					<div class="ui big blue label">
+  						<i class="plus icon"></i>Nouvelle discussion
+					</div>
+					<table class="ui basic table">
+						@foreach($topics as $topic)
+							<tbody>
+								<tr>
+									<td>
+										<a href="">
+											<strong>{{ $topic->title}}
+											</strong>
+										</a> - Par 
+										<span>
+											<strong>
+												<a href="{{ route('user.profile', ['user' => $topic->user->username]) }}">
+													{{ $topic->user->username }}
+												</a>
+											</strong>
+										</span>
+									</td>
+									<td>
+										<a class="ui label">214
+  											Réponse(s)
+										</a>
+									</td>
+    							</tr>
+  							</tbody>
+  						@endforeach
+					</table>
+						@include('partials.pagination', ['paginator' => $topics])
 				</div>
 			</div>
 		</div>

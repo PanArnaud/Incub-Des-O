@@ -25,11 +25,8 @@ This is the checklist of functionality.
   - Projects
     - View all projects **TODO**
     - Create
-    - Delete **TODO**
+    - Delete
     - Edit **TODO**
-    - Comments
-      - Delete **TODO**
-      - Edit **TODO**
-      - Report **TODO**
-      - Create **TODO**
+    - Discussions
       - WYSIWYG **TODO**
+      - Comments

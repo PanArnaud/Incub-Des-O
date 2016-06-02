@@ -15,15 +15,21 @@ class ProjectController extends Controller
 {
    public function all(Project $project) 
    {
-   		$projects = $project->paginate(5);
+   		$projects = $project->paginate(8);
 
    		return view('projects.index')->withProjects($projects);
    }
 
    public function show($id, Project $project)
    {
-   		$show = $project->where('id', $id)->firstOrFail();                      
-   		return view('projects.show')->withProject($show)->withProgress(56); //edit progress
+         $project = $project->where('id', $id)->firstOrFail();                      
+   		$topics = $project->topics()->latestFirst()->paginate(10);  
+
+   		return view('projects.show', [
+            'project' => $project, 
+            'progress' => 56, // to edit
+            'topics' => $topics, 
+         ]);
    }
 
    public function create(Request $request, City $city) 

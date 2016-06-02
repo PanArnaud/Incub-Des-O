@@ -27,9 +27,7 @@
 		@endforeach
 
 	</div>
-	<div class="ui one column centered grid">
-		@include('partials.pagination', ['paginator' => $projects])
-	</div>
+	@include('partials.pagination', ['paginator' => $projects])
 	
 @endsection
 

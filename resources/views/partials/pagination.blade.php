@@ -5,8 +5,8 @@ $link_limit = 7;
 ?>
 
 @if ($paginator->lastPage() > 1)
-    <ul class="ui pagination menu">
-        <a class="{{ ($paginator->currentPage() == 1) ? ' disabled item' : 'item' }}" href="{{ $paginator->url(1) }}">Début</i>
+    <div class="ui right pagination menu">
+        <a class="{{ ($paginator->currentPage() == 1) ? ' disabled icon item' : 'icon item' }}" href="{{ $paginator->previousPageUrl() }}"><i class="left chevron icon"></i>
         </a>
         @for ($i = 1; $i <= $paginator->lastPage(); $i++)
             <?php
@@ -24,7 +24,7 @@ $link_limit = 7;
                 <a class="{{ ($paginator->currentPage() == $i) ? 'active item' : 'item' }}" href="{{ $paginator->url($i) }}">{{ $i }}</a>
             @endif
         @endfor
-        <a href="{{ $paginator->url($paginator->lastPage()) }}" class="{{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled item' : 'item' }}">Fin
+        <a href="{{ $paginator->url($paginator->lastPage()) }}" class="{{ ($paginator->currentPage() == $paginator->nextPageUrl()) ? ' disabled icon item' : 'icon item' }}"><i class="right chevron icon"></i>
         </a>
-    </ul>
+    </div>
 @endif
