@@ -16,7 +16,7 @@ class Topic extends Model
 
     public function scopeLatestFirst($query)
     {
-        return $query->orderBy('created_at', 'desc');
+        return $query->orderBy('updated_at', 'desc');
     }
 
     public function user()

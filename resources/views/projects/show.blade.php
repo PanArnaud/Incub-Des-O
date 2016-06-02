@@ -61,10 +61,14 @@
 							<tbody>
 								<tr>
 									<td>
+										<div class="ui ribbon orange label"><i class="star icon"></i> Populaire</div> 
+										{{-- Travailler avec sa ! --}}
 										<a href="">
-											<strong>{{ $topic->title}}
+											<strong>
+												{{ $topic->title}}
 											</strong>
-										</a> - Par 
+										</a> 
+										- Par 
 										<span>
 											<strong>
 												<a href="{{ route('user.profile', ['user' => $topic->user->username]) }}">
