@@ -35,6 +35,7 @@ class Project extends Model
     public function averageRate() 
     {
         $average = $this->rates()->avg('rate');
+        $average = round($average, 0, PHP_ROUND_HALF_UP);
         return $average;
     }
 }

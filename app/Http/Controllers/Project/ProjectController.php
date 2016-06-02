@@ -55,7 +55,18 @@ class ProjectController extends Controller
 
    // Edit function
 
-   // Delete function
+   public function destroy($id, Project $project)
+   {
+      $project = $project->where('id', $id)->firstOrFail();
+      $project->delete();
+
+      notify()->flash('Supprimé !', 'success', [
+         'text' => 'Le projet a bien été supprimé !',
+         'timer' => 2000,
+      ]);
+
+      return redirect()->route('index');
+   }
 
    public function rate(Request $request)
    {

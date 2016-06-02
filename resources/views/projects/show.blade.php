@@ -12,8 +12,21 @@
 						  <img  class="ui rounded image" src="">
 					</div>
 					<div class="content">
-					  	<h1>{{ $project->title }}</h1>
-		  					<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
+					  	<h1>
+					  		{{ $project->title }}
+					  		@if(Auth::user()->id == $project->user->id || Auth::user()->hasRole(['moderator','admin','owner']))
+					  			<div class="ui right floated text menu">
+  									<a class="item">
+    									Editer
+									</a>
+  									<a id="delete" class="item">
+    									Supprimer
+									</a>
+								</div>
+							@endif
+					  	</h1>
+
+	  					<div class="ui right floated star rating" data-rating="{{ $project->averageRate() }}" data-max-rating="5"></div>
 			
 					  	<div class="meta">
 					    	<span>{{ $project->city->name }}</span> - Par <span><strong><a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $project->user->username }}</a></strong></span>	
@@ -68,6 +81,24 @@
 				});
 			});
 	  	});
+	</script>
+	<script>
+		$('#delete').on('click', function(){
+  			swal({   
+			    title: "Etes-vous sur ?",
+			    text: "La récupération de ce projet ne sera pas possible.",         type: "warning",   
+			    showCancelButton: true,   
+			    confirmButtonColor: "#DD6B55",
+			    confirmButtonText: "Supprimer!", 
+			    cancelButtonText: "Annuler",
+			    closeOnConfirm: false 
+  			}, 
+       		function(isConfirm){
+  				if (isConfirm) {
+    				window.location.href = "{{ route('project.destroy', ['id' => $project->id]) }}";
+  				}
+  			});
+		})
 	</script>
 	<script>
 		$('.menu .item')
