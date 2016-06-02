@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\City;
 use App\Rate;
-use App\Project;
+use App\Topic;
 
 class Project extends Model
 {
@@ -30,6 +30,11 @@ class Project extends Model
     public function rates()
     {
         return $this->hasMany(Rate::class);
+    }
+
+    public function topics() 
+    {
+        return $this->hasMany(Topic::class);
     }
 
     public function averageRate() 
