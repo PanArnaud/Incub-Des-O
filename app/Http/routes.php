@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Topic
     Route::get('projects/{id}/topic/create', ['as' => 'project.topic.create', 'uses' => 'Topic\TopicController@create']);
     Route::post('projects/{id}/topic/create', ['as' => 'project.topic.create', 'uses' => 'Topic\TopicController@store']);
+    Route::get('projects/{id}/topic/{topic_id}', ['as' => 'project.topic.show', 'uses' => 'Topic\TopicController@show']);
     
 
     Route::get('projects/{id}/destroy', ['as' => 'project.destroy', 'uses' => 'Project\ProjectController@destroy']);

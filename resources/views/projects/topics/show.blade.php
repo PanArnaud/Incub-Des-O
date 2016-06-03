@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $project->title)
+@section('title', $topic->title.' - '.$project->title)
 
 @section('content')
 <div class="ui grid">
@@ -44,50 +44,59 @@
 					</div>
 				</div>
 			</div>
-			<div class="ui top attached tabular menu">
-				<a class="{{ isset($_GET['page']) ? '' : 'active'}} item" data-tab="description">Description</a>
-					<a class="{{ isset($_GET['page']) ? 'active' : ''}} item" data-tab="discussion">Discussions</a>
-			</div>
-			<div class="ui bottom attached tab {{ isset($_GET['page']) ? '' : 'active'}} segment" data-tab="description">
-				<p>{!! $project->description !!}</p>
-			</div>
-			<div class="ui bottom attached tab {{ isset($_GET['page']) ? 'active' : ''}} segment" data-tab="discussion">
-				<a href="{{ route('project.topic.create', ['id' => $project->id]) }}">
-					<div class="ui blue labeled icon button">
-							<i class="plus icon"></i>Nouvelle discussion
-					</div>
-				</a>
-				<table class="ui very basic table">
-					@foreach($topics as $topic)
-						<tbody>
-							<tr>
-								<td>
-									<a href="{{ route('project.topic.show', ['id' => $project->id, 'topic_id' => $topic->id]) }}">
-										<strong>
-											{{ $topic->title}}
-										</strong>
-									</a> 
-									- Par 
-									<span>
-										<strong>
-											<a href="{{ route('user.profile', ['user' => $topic->user->username]) }}">
-												{{ $topic->user->username }}
-												&nbsp;&nbsp;
-											</a>
-										</strong>
-									</span>
-									<div class="ui orange tiny horizontal label">Populaire</div>
-								</td>
-								<td>
-									<a class="ui label">214
-										Réponse(s)
-									</a>
-								</td>
-							</tr>
-							</tbody>
-						@endforeach
-				</table>
-					@include('partials.pagination', ['paginator' => $topics])
+			<div class="ui items">
+				<div class="item">
+    				<div class="content">
+      					<div class="header"><h1>{{ $topic->title}}</h1></div>
+      					<div class="meta">
+		        			<span>
+		        				Par 
+								<strong>
+									<a href="{{ route('user.profile', ['user' => $project->user->username]) }}">{{ $topic->user->username }}</a>
+								</strong>
+							</span>
+      					</div>
+      					<div class="description">
+        					<p>{!! $topic->body !!}</p>
+      					</div>
+    				</div>
+  				</div>
+
+  				<div class="ui comments">
+  					<div class="comment">
+    					<div class="content">
+      						<a class="author">Tom Lukic</a>
+  							<div class="text">
+        						lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis explicabo aliquid inventore ratione accusantium pariatur in, rerum recusandae assumenda deleniti id laboriosam accusamus, ex corrupti. Laudantium, laborum, itaque? Officiis, modi.
+  							</div>
+      						<div class="actions">
+        						<a class="report">Signaler</a>
+        					</div>
+    					</div>
+  					</div>
+  					<div class="comment">
+    					<div class="content">
+      						<a class="author">Tom Lukic</a>
+  							<div class="text">
+        						This will be great for business reports.
+  							</div>
+      						<div class="actions">
+        						<a class="report">Signaler</a>
+        					</div>
+    					</div>
+  					</div>
+					<div class="comment">
+    					<div class="content">
+      						<a class="author">Tom Lukic</a>
+  							<div class="text">
+        						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt nisi hic laborum illum dolore ipsa aliquam quasi nostrum soluta nesciunt. Quas, rerum laborum facilis nihil quasi ratione voluptatem deserunt ad!
+  							</div>
+      						<div class="actions">
+        						<a class="report">Signaler</a>
+        					</div>
+    					</div>
+  					</div>
+				</div>
 			</div>
 		</div>
 	</div>		
@@ -102,7 +111,7 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var url = '{{ route('project.rate', ['id' => $project->id]) }}';
+			var url = '{{ route('project.rate', ['id' => $project->id] ) }}';
 			var project_id = {{ $project->id }};
 			var token = '{{ Session::token() }}';
 
@@ -132,10 +141,5 @@
   				}
   			});
 		})
-	</script>
-	<script>
-		$('.menu .item')
-	  		.tab()
-		;
 	</script>
 @endsection
