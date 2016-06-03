@@ -40,7 +40,7 @@
 
 				<div class="field">
     				<label for="description">Description</label>
-					<textarea class="description" name="description" id="description" placeholder="Présentez en détailvotre projet aux autres utilisateurs">{{ old('description') }}</textarea>
+					<textarea class="description" name="description" id="description" placeholder="Présentez en détail votre projet aux autres utilisateurs">{{ old('description') }}</textarea>
 				</div>
 
 	            {!! csrf_field() !!}

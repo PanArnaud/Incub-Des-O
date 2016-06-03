@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $project->title)
+@section('title', 'Nouvelle discussion - '.$project->title)
 
 @section('content')
 <div class="ui grid">
@@ -44,52 +44,31 @@
 					</div>
 				</div>
 			</div>
-			<div class="four wide column grid">
-				<div class="ui top attached tabular menu">
-					<a class="{{ isset($_GET['page']) ? '' : 'active'}} item" data-tab="description">Description</a>
-  					<a class="{{ isset($_GET['page']) ? 'active' : ''}} item" data-tab="discussion">Discussions</a>
-				</div>
-				<div class="ui bottom attached tab {{ isset($_GET['page']) ? '' : 'active'}} segment" data-tab="description">
-					<p>{!! $project->description !!}</p>
-				</div>
-				<div class="ui bottom attached tab {{ isset($_GET['page']) ? 'active' : ''}} segment" data-tab="discussion">
-					<a href="{{ route('project.topic.create', ['id' => $project->id]) }}">
-						<div class="ui blue labeled icon button">
-  							<i class="plus icon"></i>Nouvelle discussion
-						</div>
-					</a>
-					<table class="ui very basic table">
-						@foreach($topics as $topic)
-							<tbody>
-								<tr>
-									<td>
-										<div class="ui ribbon orange label"><i class="star icon"></i> Populaire</div> 
-										{{-- Travailler avec sa ! --}}
-										<a href="">
-											<strong>
-												{{ $topic->title}}
-											</strong>
-										</a> 
-										- Par 
-										<span>
-											<strong>
-												<a href="{{ route('user.profile', ['user' => $topic->user->username]) }}">
-													{{ $topic->user->username }}
-												</a>
-											</strong>
-										</span>
-									</td>
-									<td>
-										<a class="ui label">214
-  											Réponse(s)
-										</a>
-									</td>
-    							</tr>
-  							</tbody>
-  						@endforeach
-					</table>
-						@include('partials.pagination', ['paginator' => $topics])
-				</div>
+			<div class="ui form">
+	        	<form action="{{ route('project.topic.create', ['id' => $project->id]) }}" method="post">
+					<div class="field">
+		            	<label for="title">Titre de la discussion</label>
+	                    <div class="ui left icon input">
+	                        <input placeholder="Titre de la discussion" name="title" id="title" type="title" value="{{ old('title') }}">
+	                        <i class="write icon"></i>
+
+
+	                        @if ($errors->has('title'))
+	                            <span class="help-block">
+	                                <strong>{{ $errors->first('title') }}</strong>
+	                            </span>
+	                        @endif
+	                    </div>
+	            	</div>
+
+					<div class="field">
+	    				<label for="body">Message</label>
+						<textarea class="body" name="body" id="body" placeholder="Contenu de votre message">{{ old('body') }}</textarea>
+					</div>
+
+					{!! csrf_field() !!}
+	            	<button type="submit" class="ui blue submit button">Ouvrir la discussion</button>
+				</form>
 			</div>
 		</div>
 	</div>		
@@ -135,9 +114,20 @@
   			});
 		})
 	</script>
+
+	{{-- TinyMCE --}}
+	<script src="{{ URL::to('js/tinymce/tinymce.min.js') }}"></script>
 	<script>
-		$('.menu .item')
-	  		.tab()
-		;
+		tinymce.init({
+		  selector: 'textarea.body',
+		  height: 500,
+		  language : "fr_FR",
+		  plugins: [
+		    'autolink lists link charmap preview',
+		    'searchreplace visualblocks code fullscreen',
+		    'insertdatetime table contextmenu paste code'
+		  ],
+		  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+		});
 	</script>
 @endsection

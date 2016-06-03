@@ -39,8 +39,16 @@ Route::group(['middleware' => ['auth']], function () {
     // Projects
     Route::get('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@create']);
     Route::post('projects/create', ['as' => 'project.create', 'uses' => 'Project\ProjectController@store']);
+    
+	// Rate
     Route::get('projects/{id}', ['as' => 'project.show', 'uses' => 'Project\ProjectController@show']);
     Route::post('projects/{id}/rate', ['as' => 'project.rate', 'uses' => 'Project\ProjectController@rate']);
+
+    // Topic
+    Route::get('projects/{id}/topic/create', ['as' => 'project.topic.create', 'uses' => 'Topic\TopicController@create']);
+    Route::post('projects/{id}/topic/create', ['as' => 'project.topic.create', 'uses' => 'Topic\TopicController@store']);
+    
+
     Route::get('projects/{id}/destroy', ['as' => 'project.destroy', 'uses' => 'Project\ProjectController@destroy']);
 
     Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
