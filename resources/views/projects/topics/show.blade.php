@@ -64,6 +64,9 @@
 
   				<div class="ui comments">
   					<div class="comment">
+  						<a class="avatar" href="">
+      						<img src="$project->user->getAvatar()" />
+    					</a>
     					<div class="content">
       						<a class="author">Tom Lukic</a>
   							<div class="text">
